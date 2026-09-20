@@ -7,11 +7,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-data = pd.read_csv("/content/employee_data.csv")                
+data = pd.read_csv("/Extended_Employee_Performance_and_Productivity_Data.csv")
 print(" First 5 Rows:")
 print(data.head())
-X = data[['Experience', 'Skill_Score', 'Training_Hours', 'Peer_Feedback']]
-y = data['High_Performer']
+X = data[['Years_At_Company', 'Performance_Score', 'Training_Hours']]
+y = data['Resigned']
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.3, random_state=4)
